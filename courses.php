@@ -37,7 +37,7 @@ $categoryId = optional_param('categoryId', 1, PARAM_INT);
  * Acessando o banco de dados para buscar todos os courses da categoria parametrizada
  * Salva em uma varíavel (array)
  */
-$courses = $DB->get_records('course', array('category' => $categoryId), 'shortname');
+$courses = $DB->get_records('course', array('category' => $categoryId, 'visible' => '1'), 'shortname');
 
 /**
  * Instancia-se a tabela

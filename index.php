@@ -39,14 +39,17 @@ $table->head = array(
 
 foreach ($categories as $cat) {
     $numofcourses = $DB->count_records(
-        'course', array('visible'=>'1', 'category'=>$cat->id));
+        'course',
+        array('visible' => '1', 'category' => $cat->id)
+    );
 
     $table->data[] = array(
         html_writer::link(
-            $CFG->wwwroot . '/report/eduardoatv5/courses.php?categoryId=' . $cat->id, 
+            $CFG->wwwroot . '/report/eduardoatv5/courses.php?categoryId=' . $cat->id,
             $cat->name
-        ), 
-        $numofcourses);
+        ),
+        $numofcourses
+    );
 }
 
 echo html_writer::table($table);
